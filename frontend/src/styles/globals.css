@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+/* Dark mode: TelegramProvider <html data-theme="dark"> ni o'rnatadi */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* =====================================================================
+ * Rang tokenlari. Telegram --tg-theme-* o'zgaruvchilarini o'zi o'rnatadi,
+ * bu yerdagilar Telegram'dan tashqarida ishlatiladigan zaxira qiymatlar.
+ * ===================================================================== */
+:root {
+  --app-bg: var(--tg-theme-bg-color, #ffffff);
+  --app-bg-secondary: var(--tg-theme-secondary-bg-color, #f4f4f5);
+  --app-text: var(--tg-theme-text-color, #18181b);
+  --app-hint: var(--tg-theme-hint-color, #71717a);
+  --app-link: var(--tg-theme-link-color, #ea580c);
+  --app-border: color-mix(in srgb, var(--app-hint) 22%, transparent);
+  --app-nav-height: 68px;
+}
+
+[data-theme='dark'] {
+  --app-bg: var(--tg-theme-bg-color, #18181b);
+  --app-bg-secondary: var(--tg-theme-secondary-bg-color, #0f0f11);
+  --app-text: var(--tg-theme-text-color, #fafafa);
+  --app-hint: var(--tg-theme-hint-color, #a1a1aa);
+}
+
+@theme inline {
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: var(--app-bg);
+  --color-bg-secondary: var(--app-bg-secondary);
+  --color-text: var(--app-text);
+  --color-hint: var(--app-hint);
+  --color-link: var(--app-link);
+  --color-line: var(--app-border);
+
+  /* Brend ranglari (pitsa: olov-apelsin) */
+  --color-brand-50: #fff7ed;
+  --color-brand-100: #ffedd5;
+  --color-brand-200: #fed7aa;
+  --color-brand-300: #fdba74;
+  --color-brand-400: #fb923c;
+  --color-brand-500: #f97316;
+  --color-brand-600: #ea580c;
+  --color-brand-700: #c2410c;
+  --color-accent: #e11d48;
+}
+
+@theme {
+  --animate-fade-in: fade-in 0.35s ease-out both;
+  --animate-slide-up: slide-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pop: pop 0.3s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+  }
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--app-bg);
+    color: var(--app-text);
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+  body {
+    min-height: var(--tg-viewport-stable-height, 100dvh);
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* iPhone pastki chiziq uchun joy */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 8px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  /* Instagram uslubidagi stories halqasi */
+  .story-ring {
+    background: conic-gradient(from 210deg, #f97316, #e11d48, #a21caf, #f59e0b, #f97316);
+  }
+  .story-ring-seen {
+    background: var(--app-border);
+  }
+}

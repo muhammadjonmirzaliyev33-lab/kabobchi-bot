@@ -1,0 +1,31 @@
+# Render Blueprint: bitta web service — bot + API + Mini App (frontend statik build)
+services:
+  - type: web
+    name: pizza-kuryer
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && npm ci --omit=dev
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_IDS
+        value: "1027530770"
+      - key: BOT_USERNAME
+        value: Pizza_kuryer_bot
+      - key: DB_AUTO_INIT
+        value: "true"
+      - key: SOM_PER_STAR
+        value: "200"
+      - key: NEXT_PUBLIC_API_URL
+        value: /api
+      - key: NEXT_PUBLIC_ADMIN_ID
+        value: "1027530770"
