@@ -87,7 +87,7 @@ Repo ildizidagi `render.yaml` hammasini sozlaydi: frontend statik build qilinadi
 `DB_AUTO_INIT=true` bo'lgani uchun Neon jadvallari server har ishga tushganda yaratiladi (mavjud ma'lumot o'chmaydi),
 `WEBAPP_URL` va `WEBHOOK_DOMAIN` Render manzilidan (`RENDER_EXTERNAL_URL`) avtomatik olinadi.
 
-1. https://render.com/deploy?repo=https://github.com/muhammadjonmirzaliyev33-lab/pizza-kuryer ni oching (GitHub bilan kiring).
+1. https://render.com/deploy?repo=https://github.com/muhammadjonmirzaliyev33-lab/My-professional-app/tree/pizza-kuryer ni oching (GitHub bilan kiring).
 2. `BOT_TOKEN` va `DATABASE_URL` ni kiriting, **Apply** bosing.
 3. Build tugagach botga `/start` yozing, "🍕 Menyu" tugmasi ishlaydi.
 

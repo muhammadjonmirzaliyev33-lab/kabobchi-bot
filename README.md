@@ -4,7 +4,7 @@ Telegram Mini App + bot: `backend/` (Express, Telegraf, Neon PostgreSQL) va `fro
 
 ## Bir tugmada deploy (Render)
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/muhammadjonmirzaliyev33-lab/pizza-kuryer)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/muhammadjonmirzaliyev33-lab/My-professional-app/tree/pizza-kuryer)
 
 Render ikkita qiymat so'raydi: `BOT_TOKEN` (@BotFather) va `DATABASE_URL` (Neon connection string).
 Qolgani avtomatik: frontend build qilinadi va backend o'zi beradi, Neon jadvallari server ishga tushganda yaratiladi,
